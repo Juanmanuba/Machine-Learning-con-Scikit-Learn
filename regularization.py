@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print(Y.shape)
 
     # partimos los datos en el conjunto de prueba y conjunto de entrenamiento
-    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3)
 
     modelLinear = LinearRegression().fit(X_train, Y_train)
     y_predict_linear = modelLinear.predict(X_test)
@@ -28,10 +28,10 @@ if __name__ == "__main__":
     modelLasso = Lasso(alpha=0.02).fit(X_train, Y_train)
     y_predict_lasso = modelLasso.predict(X_test)
 
-    modelRidge = Ridge(alpha=1).fit(X_train, Y_train)
+    modelRidge = Ridge(alpha=0.02).fit(X_train, Y_train)
     y_predict_ridge = modelRidge.predict(X_test)
 
-    modelElasticNet = ElasticNet(alpha=1, l1_ratio=0.2, random_state=0)
+    modelElasticNet = ElasticNet(alpha=1, l1_ratio=0.8, random_state=0)
     modelElasticNet.fit(X_train, Y_train)
     y_predict_elasticNet = modelElasticNet.predict(X_test)
 

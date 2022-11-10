@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     # n_components = min(n_muestras, n_features)
     # Llamada para aplicar el PCA y dejar solo 3 componentes, las mas relevantes
-    pca = PCA(n_components=3)
+    pca = PCA(n_components=6)
     # Para hacer que el PCA se ajuste a los datos que tenemos como X de entrenamiento
     pca.fit(X_train)
 
