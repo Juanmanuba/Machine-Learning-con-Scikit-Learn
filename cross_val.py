@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     model = DecisionTreeRegressor()
     score = cross_val_score(
-        model, X, Y, cv=5, scoring='neg_mean_squared_error')
+        model, X, Y, cv=3, scoring='neg_mean_squared_error')
 
     print(np.abs(np.mean(score)))
     print("-"*64)
