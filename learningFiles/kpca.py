@@ -10,12 +10,12 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
 if __name__ == "__main__":
-    dt_heart = pd.read_csv('./data/heart.csv')
+    dt_heart = pd.read_csv('./data/cancer.csv')
 
     print(dt_heart.head(5))
 
-    dt_features = dt_heart.drop(['target'], axis=1)
-    dt_target = dt_heart['target']
+    dt_features = dt_heart.drop(['LUNG_CANCER', 'GENDER'], axis=1)
+    dt_target = dt_heart['LUNG_CANCER']
 
     dt_features = StandardScaler().fit_transform(dt_features)
 

@@ -4,12 +4,12 @@ from sklearn.cluster import MiniBatchKMeans
 
 if __name__ == "__main__":
 
-    dataset = pd.read_csv('./data/candy.csv')
+    dataset = pd.read_csv('./data/cancer.csv')
     print(dataset.head(10))
 
-    X = dataset.drop('competitorname', axis=1)
+    X = dataset.drop(['LUNG_CANCER', 'GENDER'], axis=1)
 
-    kmeans = MiniBatchKMeans(n_clusters=4, batch_size=8).fit(X)
+    kmeans = MiniBatchKMeans(n_clusters=2, batch_size=8).fit(X)
     print("Total de centros: ", len(kmeans.cluster_centers_))
     print("-"*64)
 
@@ -18,4 +18,5 @@ if __name__ == "__main__":
 
     dataset['group'] = kmeans.predict(X)
 
+    dataset.to_csv('file_name.csv')
     print(dataset)
